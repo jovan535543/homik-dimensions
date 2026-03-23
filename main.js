@@ -22,6 +22,37 @@ setInterval(() => {
     document.getElementById('homikdim2Value').innerText = homikdim2;
 }, 33);
 
+function loadGame() {
+  const raw = localStorage.getItem("homikDimensionsSave");
+  if (!raw) return;
+  try {
+    const data = JSON.parse(raw);
+    count = Number(data.count) || 0;
+    homikdim1 = Number(data.homikdim1) || 1;
+    homikdim2 = Number(data.homikdim2) || 0;
+    homik1cost = Number(data.homik1cost) || homik1cost;
+    homik2cost = Number(data.homik2cost) || homik2cost;
+    homik1buyamt = Number(data.homik1buyamt) || homik1buyamt;
+    homik2buyamt = Number(data.homik2buyamt) || homik2buyamt;
+    gen = Number(data.gen) || gen;
+  } catch (e) {
+    console.warn("Failed to load save", e);
+  }
+}
+loadGame();
+
+function saveGame() {
+  const data = {
+    count, homikdim1, homikdim2,
+    homik1cost, homik2cost,
+    homik1buyamt, homik2buyamt,
+    gen
+  };
+  localStorage.setItem("homikDimensionsSave", JSON.stringify(data));
+}
+
+setInterval(saveGame, 5000);
+
 setInterval(() => {
     count += (homikdim1 * gen)/interval;
  
@@ -45,7 +76,7 @@ function buttonClick() {
             homik1cost *= 10;
         }
         homikdim1 += 1;
-        document.getElementById('buy').innerHTML = 'buy homik dim 1 (' + homik1cost.toExponential(2).replace('+', '') + ')';
+        document.getElementById('buy').innerHTML = 'buy homik dim 1 (' + homik1cost.toFixed(2).replace('+', '') + ')';
     }
 }
 
@@ -54,7 +85,7 @@ function buttonClickHomik2() {
         count -= homik2cost;
         homik2buyamt += 1;
         homikdim2 += 1;
-        document.getElementById('buyhomik2').innerHTML = 'buy homik dim 2 (' + homik2cost.toExponential(2).replace('+', '') + ')';
+        document.getElementById('buyhomik2').innerHTML = 'buy homik dim 2 (' + homik2cost.toFixed(2).replace('+', '') + ')';
           if (homik2buyamt % 10 == 0 && homik2buyamt != 0){
             homikdim1gen *= 2;
             homik2cost *= 10;

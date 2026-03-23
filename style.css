@@ -1,0 +1,76 @@
+body {
+    position: relative;
+    height: 100vh;
+    margin: 0;
+}
+
+#counter {
+    display: none; /* hidden since #homik gives friendly label + value */
+}
+
+#homik {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    text-align: center;
+    position: fixed;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+#homik .label {
+    color: rgb(82, 49, 49);
+}
+
+#homik .value {
+    color: black;
+}
+#buy {
+     font-family: Arial, Helvetica, sans-serif;
+
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    padding: 12px 26px;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+
+#buyhomik2 {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    padding: 12px 26px;
+    position: fixed;
+    right: 20px;
+    top: 60%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+#homikdim1 {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    padding: 12px 26px;
+    position: fixed;
+    right: 800px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}
+
+#homikdim2 {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    padding: 12px 26px;
+    position: fixed;
+    right: 800px;
+    top: 60%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+}

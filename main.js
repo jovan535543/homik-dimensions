@@ -12,6 +12,10 @@ let homikdim1 = 1;
 let homikdim2 = 0;
 
 let homikdim1gen = 1;
+
+console.log('homik dimensions loaded, version 1.1');
+
+
 document.getElementById('buy').innerHTML = 'buy homik dim 1 (' + homik1cost.toFixed(2).replace('+', '') + ')';
 document.getElementById('buyhomik2').innerHTML = 'buy homik dim 2 (' + homik2cost.toFixed(2).replace('+', '') + ')';
 
